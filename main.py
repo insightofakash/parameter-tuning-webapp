@@ -80,13 +80,14 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, rando
 
 clf.fit(X_train, y_train)
 predict = clf.predict(X_test)
-accuracy = accuracy_score(y_test, predict)
+accuracy = round(accuracy_score(y_test, predict),3)*100
 
-st.write("#### The accuracy score using ", classifiername, " classifier for ", datasetname , "database is: ", accuracy)
+st.write("#### The accuracy score using ", classifiername, " classifier for ", datasetname , "database is: ", accuracy, "%")
 
 
 # Plotting using PCA
 
+st.write("### 3D plot after feature extraction using PCA.")
 pca = PCA(3)
 X_projected = pca.fit_transform(X)
 
